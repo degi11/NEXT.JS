@@ -10,8 +10,13 @@ export const userTable = async (req, res) => {
       currency_type currency_type DEFAULT 'USD' NOT NULL
       )
       `;
-  db.query(TableQueryText);
-  res.send("success");
+  try {
+    const result = await db.query(TableQueryText);
+    res.send("success");
+  } catch (error) {
+    console.log(err);
+    return res.status(500).json({ error: "L" });
+  }
 };
 
 export const recordTable = async (req, res) => {
@@ -32,8 +37,13 @@ export const recordTable = async (req, res) => {
       updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       )
       `;
-  db.query(TableQueryText);
-  res.send("good job");
+  try {
+    const result = await db.query(TableQueryText);
+    res.send("success");
+  } catch (error) {
+    console.log(err);
+    return res.status(500).json({ error: "L" });
+  }
 };
 
 export const categoryTable = async (req, res) => {
@@ -46,6 +56,11 @@ export const categoryTable = async (req, res) => {
       category_image
       )
       `;
-  db.query(TableQueryText);
-  res.send("success");
+  try {
+    const result = await db.query(TableQueryText);
+    res.send("success");
+  } catch (error) {
+    console.log(err);
+    return res.status(500).json({ error: "L" });
+  }
 };

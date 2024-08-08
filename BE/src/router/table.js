@@ -1,10 +1,11 @@
 import express from "express";
-import { categoryTable, recordTable, userTable } from "../controller/table";
+import { categoryTable, recordTable, userTable } from "../controller/table.js";
 
-const table = expressRouter();
+const table = express.Router();
 
-app.use("/user", userTable);
-app.use("/record", recordTable);
-app.use("/category", categoryTable);
+table
+  .use("/user", userTable)
+  .use("/record", recordTable)
+  .use("/category", categoryTable);
 
 export { table };
