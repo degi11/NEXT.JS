@@ -76,3 +76,19 @@ export const deleteUser = async (req, res) => {
     res.status(500).json({ error: "Database error" });
   }
 };
+
+export const filterUser = async (req, res) => {
+  let body = req.body;
+  const { query } = body;
+  delete body.query;
+  let queryText = "SELECT * FROM users  ";
+  queryText = queryText + query;
+
+  try {
+    const result = await db.query(queryText, [...Object.values(body)]);
+    res.status(201).json(result.rows[0]);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "Database error" });
+  }
+};
