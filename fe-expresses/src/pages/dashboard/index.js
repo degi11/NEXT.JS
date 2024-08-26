@@ -3,13 +3,14 @@ import { Graphic } from "@/components/my-components/graphic";
 import { LastRecords } from "@/components/second-components/lastRecords";
 import { Layout } from "@/components/my-components/layout";
 import { Selection } from "@/components/second-components/selection";
+import { Cash } from "@/components/second-components/cash";
 
 export default function Home() {
   return (
     <Layout>
       <Selection>
         <div className="flex gap-[24px] mt-[24px]">
-          <Card title={"My Income"} balance={"+99,999,999"}></Card>
+          <Cash />
           <Card title={"Your Income"} balance={"-12,000,000"}></Card>
           <Card title={"My Income"} balance={"+99,999,999"}></Card>
         </div>

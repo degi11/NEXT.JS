@@ -1,6 +1,7 @@
 import { Bar, BarChart, XAxis } from "recharts";
 import { ChartContainer } from "@/components/ui/chart";
 import { CircleChart } from "../second-components/pieChart";
+import { PieChartData } from "../second-components/pieChartData";
 
 const chartData = [
   { month: "January", desktop: 186, mobile: 80 },
@@ -62,40 +63,34 @@ export const Graphic = ({ date }) => {
         <div className="flex ">
           <CircleChart />
           <div className="flex flex-col gap-4 pt-[24px]">
-            <div className="flex items-center pl-2 gap-[20px] ">
-              <div className="w-2 h-2 rounded-full bg-green-600" />
-              <p className="w-[100px]">bill</p>
-              <p className="w-[80px]">5'000'000</p>
-              <p>24.8%</p>
-            </div>
+            <PieChartData
+              category={"food & drinks"}
+              expense={"5,000,000"}
+              porcent={"24,4%"}
+            />
+            <PieChartData
+              category={"food & drinks"}
+              expense={"5,000,000"}
+              porcent={"24,4%"}
+            />
 
-            <div className="flex items-center pl-2 gap-[20px] ">
-              <div className="w-2 h-2 rounded-full bg-green-600" />
-              <p className="w-[100px]">bill</p>
-              <p className="w-[80px]">5'000'000</p>
-              <p>24.8%</p>
-            </div>
+            <PieChartData
+              category={"food & drinks"}
+              expense={"5,000,000"}
+              porcent={"24,4%"}
+            />
 
-            <div className="flex items-center pl-2 gap-[20px] ">
-              <div className="w-2 h-2 rounded-full bg-green-600" />
-              <p className="w-[100px]">bill</p>
-              <p className="w-[80px]">5'000'000</p>
-              <p>24.8%</p>
-            </div>
+            <PieChartData
+              category={"food & drinks"}
+              expense={"5,000,000"}
+              porcent={"24,4%"}
+            />
 
-            <div className="flex items-center pl-2 gap-[20px] ">
-              <div className="w-2 h-2 rounded-full bg-green-600" />
-              <p className="w-[100px]">bill</p>
-              <p className="w-[80px]">5'000'000</p>
-              <p>24.8%</p>
-            </div>
-
-            <div className="flex items-center pl-2 gap-[20px] ">
-              <div className="w-2 h-2 rounded-full bg-green-600" />
-              <p className="w-[100px]">bill</p>
-              <p className="w-[80px]">5'000'000</p>
-              <p>24.8%</p>
-            </div>
+            <PieChartData
+              category={"food & drinks"}
+              expense={"5,000,000"}
+              porcent={"24,4%"}
+            />
           </div>
         </div>
       </div>

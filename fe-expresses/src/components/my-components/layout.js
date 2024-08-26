@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { GeldHalfLogo } from "../GeldHalfLogo";
-import { Button } from "../ui/button";
 import Image from "next/image";
-import { PlusLogo } from "../PlusLogo";
+import { AddRecords } from "./addRecords";
 
 export const Layout = ({ children }) => {
   return (
@@ -19,10 +18,7 @@ export const Layout = ({ children }) => {
             </Link>
           </div>
           <div className="flex gap-6">
-            <Button className="bg-blue-700 rounded-[20px] p-4 flex gap-1">
-              <PlusLogo />
-              <p>Records</p>
-            </Button>
+            <AddRecords />
             <Image
               className="rounded-full box-border "
               src="https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/03/toji-in-jjk.jpg"
