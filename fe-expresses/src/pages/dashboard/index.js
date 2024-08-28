@@ -4,13 +4,19 @@ import { LastRecords } from "@/components/second-components/lastRecords";
 import { Layout } from "@/components/my-components/layout";
 import { Selection } from "@/components/second-components/selection";
 import { Cash } from "@/components/second-components/cash";
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    console.log(user);
+  }, []);
+
   return (
     <Layout>
       <Selection>
         <div className="flex gap-[24px] mt-[24px]">
-          <Cash />
+          <Cash money={"0"} />
           <Card title={"Your Income"} balance={"-12,000,000"}></Card>
           <Card title={"My Income"} balance={"+99,999,999"}></Card>
         </div>

@@ -1,16 +1,17 @@
 import Image from "next/image";
 import Large from "@/components/Large.png";
+import { VisaCardDesign } from "../visaCardDesign";
 
-export const Cash = () => {
+export const Cash = ({ money }) => {
   return (
-    <Image
-      className=" box-border "
-      src={Large}
-      alt="Visacard"
-      width={384}
-      height={216}
-      priority
-      quality={100}
-    />
+    <div className="w-1/3 h-[216px] flex bg-blue-600 rounded-[12px]">
+      <div>
+        <div>
+          <p>CASH</p>
+          <p>{money}</p>
+        </div>
+      </div>
+      <VisaCardDesign className=""></VisaCardDesign>
+    </div>
   );
 };
