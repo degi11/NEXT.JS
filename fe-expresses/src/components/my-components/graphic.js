@@ -1,4 +1,4 @@
-import { Bar, BarChart, XAxis } from "recharts";
+import { Bar, BarChart, XAxis, YAxis } from "recharts";
 import { ChartContainer } from "@/components/ui/chart";
 import { CircleChart } from "../second-components/pieChart";
 import { PieChartData } from "../second-components/pieChartData";
@@ -23,6 +23,8 @@ const chartConfig = {
   },
 };
 
+// let acc = 0 if(ttype === "exp") acc.expense += amount
+
 export const Graphic = ({ date }) => {
   return (
     <div className="w-full flex gap-6">
@@ -31,12 +33,6 @@ export const Graphic = ({ date }) => {
           <p>Income - Expense</p>
         </div>
         <div className="flex">
-          <div className="pl-[32px] flex flex-col gap-[18px] pt-[32px]">
-            <p>3'000'000</p>
-            <p>2'000'000</p>
-            <p>1'000'000</p>
-            <p>0</p>
-          </div>
           <ChartContainer
             config={chartConfig}
             className="h-[224px] w-full py-[32px] pr-[32px]"
@@ -49,6 +45,7 @@ export const Graphic = ({ date }) => {
                 axisLine={false}
                 tickFormatter={(value) => value.slice(0, 3)}
               />
+              <YAxis />
               <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
               <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
             </BarChart>

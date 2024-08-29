@@ -4,6 +4,7 @@ import {
   getRecords,
   deleteRecord,
   updateRecord,
+  getRecordByUserid,
 } from "../controller/record.js";
 
 const record = express.Router();
@@ -12,6 +13,7 @@ record
   .get("/", getRecords)
   .post("/create", createRecord)
   .put("/:id", updateRecord)
-  .delete("/:id", deleteRecord);
+  .delete("/:id", deleteRecord)
+  .get("/get-user-records", getRecordByUserid);
 
 export { record };

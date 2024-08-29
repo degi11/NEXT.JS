@@ -41,7 +41,7 @@ export const recordTable = async (req, res) => {
     const result = await db.query(TableQueryText);
     res.send("success");
   } catch (error) {
-    console.log(err);
+    console.log(error);
     return res.status(500).json({ error: "L" });
   }
 };

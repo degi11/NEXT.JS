@@ -12,10 +12,11 @@ export const getRecords = async (req, res) => {
 };
 
 export const createRecord = async (req, res) => {
-  const { name, user_id, amount, description, category_id } = req.body;
+  const { name, user_id, amount, description, category_id, transaction_type } =
+    req.body;
   const QueryText = `
-      INSERT INTO record (name, user_id, amount, description, category_id)
-      VALUES ($1, $2, $3, $4, $5) RETURNING *`;
+      INSERT INTO record (name, user_id, amount, description, category_id, transaction_type)
+      VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`;
 
   try {
     const result = await db.query(QueryText, [
@@ -24,6 +25,7 @@ export const createRecord = async (req, res) => {
       amount,
       description,
       category_id,
+      transaction_type,
     ]);
     res.status(201).json(result.rows[0]);
   } catch (err) {
@@ -58,6 +60,21 @@ export const deleteRecord = async (req, res) => {
   try {
     const result = await db.query("DELETE FROM record WHERE id = $1", [id]);
     res.send("record deleted");
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "Database error" });
+  }
+};
+
+export const getRecordByUserid = async (req, res) => {
+  const { userId } = req.query;
+  try {
+    const result = await db.query(
+      "SELECT record.*, category.name AS categoryName FROM record INNER JOIN category ON record.category_id = category.id WHERE user_id = $1",
+      [userId]
+    );
+    res.send(result.rows);
+    console.log(result.rows);
   } catch (err) {
     console.log(err);
     res.status(500).json({ error: "Database error" });

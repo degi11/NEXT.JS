@@ -14,8 +14,6 @@ import { SelectCom } from "./selectCom";
 import { MyButton } from "../second-components/My-button";
 
 export const AddRecords = () => {
-  const count = true;
-  const ColorChanger = () => {};
   return (
     <Dialog>
       <DialogTrigger asChild>
